@@ -8,17 +8,17 @@ class DatasetReader:
     def __init__(self) -> None:
         pass
 
-    def read_dataset_1(self):
+    def get_dataset_1(self):
         df = pd.read_csv('assignment2_work_logreg/ex2data1.txt',
                          names=['exam1score', 'exam2score', 'admitted'])
         return df
 
-    def read_dataset_2(self):
+    def get_dataset_2(self):
         return pd.read_csv('assignment2_work_logreg/ex2data2.txt',
                            names=['exam1score', 'exam2score', 'admitted'])
 
     def plot_dataset_1(self):
-        df1 = self.read_dataset_1()
+        df1 = self.get_dataset_1()
         # df.info()
         # print("head----------------")
         # print(df.head())
@@ -31,7 +31,7 @@ class DatasetReader:
         fig.show()
 
     def plot_dataset_2(self):
-        df2 = self.read_dataset_2()
+        df2 = self.get_dataset_2()
         fig = px.scatter(df2,
                          x='exam1score', y='exam2score', color='admitted',
                          color_continuous_scale=['red', 'blue'])

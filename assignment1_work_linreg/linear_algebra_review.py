@@ -1,5 +1,5 @@
 import numpy as np
-
+import pandas as pd
 
 def test1():
     m = np.matrix([[1], [4], [2]])
@@ -101,11 +101,42 @@ def inverse_and_transpose():
         [0, 5, 6],
         [7, 0, 9]
     ])
-    A_ij = np.transpose(A)
-    print("A_ij\n", A_ij)
+    A_transpose = np.transpose(A)
+    print("A_transpose\n", A_transpose)
+
+    A_inv = np.linalg.inv(A)
+    print("A_inv:\n", A_inv)
+
+    A_inv_times_A = A_inv * A
+    print("A_inv_times_A:\n", A_inv_times_A)
+
+def matrix_multiplication_test():
+    a = np.matrix([
+        [0],
+        [0],
+        [1],
+        [1],
+        [1]
+    ])
+    a_df = pd.DataFrame(a)
+    print("a_df:\n", a_df)
+
+    b = np.matrix([
+        [-.65],
+        [-.65],
+        [-.65],
+        [-.65],
+        [-.65]
+    ])
+    b_df = pd.DataFrame(b)
+    print("b_df:\n", b_df)
+
+    prod = a_df ** b_df
+    print("prod: ", prod)
 
 # test1()
 # test2()
 # test3()
 # matrix_multiplication_properties()
-# inverse_and_transpose()
+#inverse_and_transpose()
+matrix_multiplication_test()
